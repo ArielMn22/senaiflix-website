@@ -57,7 +57,7 @@ body {
     background-image: url("../imgs/bg.jpg"); /* Define a imagem de fundo do banner */
     background-size: cover; /* Faz com que a imagem cubra toda a área disponível */
     background-position: center; /* Centraliza a imagem de fundo */
-    width: 100vw; /* Define a largura do banner como 100% da largura da janela de visualização */
+    width: 100%; /* Define a largura do banner como 100% da largura da janela de visualização */
     height: 100vh; /* Define a altura do banner como 100% da altura da janela de visualização */
     display: flex; /* Usa flexbox para o layout */
     align-items: flex-end; /* Alinha os itens dentro do banner na parte inferior */
@@ -105,7 +105,7 @@ body {
 
 .filmes-series {
 
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: black;
     min-height: 200px; /* Altura mínima */
