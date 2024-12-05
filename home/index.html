@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENAIFLIX - Filmes e Séries</title>
     <link rel="stylesheet" href="../assets/styles/global.css">
+    <script src="scripts.js"></script>
 
 </head>
 <body>
 
-    <header>
+    <header class="cabecalho">
 
         <div>
             
@@ -23,19 +24,39 @@
             <a href="#">Início</a>
             <a href="#">Filmes</a>
             <a href="#">Séries</a>
-
+            
         </nav>
         
     </header>
     
+    <!-- CABECALHO MOBILE - INICIO -->
+    <header id="cabecalho-mobile">
+        
+        <button class="botao-de-fechar" onclick="fecharCabecalhoMobile()">
+            <img src="../assets/imgs/xmark-solid.svg" alt="Botão de fechar.">
+        </button>
+
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Filmes</a>
+            <a href="#">Séries</a>
+        </nav>
+
+    </header>
+
+    <button class="menu-de-hamburguer" onclick="abrirCabecalhoMobile()">
+        <img src="../assets/imgs/bars-solid.svg" alt="Menu de hamburguer.">
+    </button>
+    <!-- CABECALHO MOBILE - FINAL -->
+
     <main>
 
         <section class="banner">
 
             <div class="textos">
 
-                <h1>Thor Ragnarok!</h1>        
-                <p>Thor: Ragnarok (2017) é o terceiro filme da franquia solo de Thor no Universo Cinematográfico da Marvel, dirigido por Taika Waititi. A história começa quando Thor descobre que sua irmã perdida, Hela, a poderosa deusa da morte, escapou de sua prisão e está determinada a conquistar Asgard, desencadeando o apocalipse conhecido como Ragnarok.</p>
+                <h1>Tó Raguinaróqui</h1>        
+                <p>Tó: Raguinaróqui (2017) é o terceiro filme da franquia solo de Thor no Universo Cinematográfico da Marvel, dirigido por Taika Waititi. A história começa quando Thor descobre que sua irmã perdida, Hela, a poderosa deusa da morte, escapou de sua prisão e está determinada a conquistar Asgard, desencadeando o apocalipse conhecido como Ragnarok.</p>
 
             </div>
 
