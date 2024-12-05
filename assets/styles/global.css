@@ -48,7 +48,7 @@ body {
 }
 
 .banner {
-    background-image: url("/assets/imgs/bg.jpg"); /* Define a imagem de fundo do banner */
+    background-image: url("../imgs/bg.jpg"); /* Define a imagem de fundo do banner */
     background-size: cover; /* Faz com que a imagem cubra toda a área disponível */
     background-position: center; /* Centraliza a imagem de fundo */
     width: 100vw; /* Define a largura do banner como 100% da largura da janela de visualização */
