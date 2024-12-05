@@ -300,7 +300,6 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 38px;
     color: white;
     margin-top: 100px;
 }
@@ -315,7 +314,6 @@ main {
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 38px;
 }
 
 .card_elenco {
@@ -495,5 +493,66 @@ main {
     }
 
     /* CABECALHO MOBILE - FIM */
+
+    /* DETALHES DE FILME - INICIO */
+    .detalhes_filme_container {
+
+        padding: 15px;
+
+    }
+
+    .section_informacoes .capa-filme {
+
+        width: 100%;
+
+    }
+
+    .section_informacoes {
+
+        flex-direction: column;
+        gap: 0px;
+
+    }
+    
+    .section_informacoes h2 {
+
+        margin-top: 20px;
+
+    }
+
+    .elenco_container {
+
+        margin-top: 15px;
+
+    }
+
+    .elenco_container .card_elenco {
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0px;
+        flex-basis: calc(50% - 5px);
+        margin-bottom: 15px;
+
+    }
+
+    .elenco_container .card_elenco span {
+
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        padding: 0px 10px;
+
+    }
+    
+    .elenco_container .card_elenco img {
+
+        height: unset;
+        width: 100%;
+
+    }
+    /* DETALHES DE FILME - FINAL */
 
 }
