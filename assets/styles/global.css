@@ -177,6 +177,8 @@ body {
 
     border-radius: 7px;
 
+    cursor: pointer;
+
 }
 
 footer {
@@ -554,5 +556,36 @@ main {
 
     }
     /* DETALHES DE FILME - FINAL */
+
+    /* IR PARA O TOPO - INÍCIO */
+    .ir-para-o-topo {
+
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+
+        border-radius: 7px;
+
+        height: 60px;
+        width: 60px;
+
+        background-color: black;
+        border: 1px solid white;
+
+        z-index: 3;
+
+        color: white;
+
+        cursor: pointer;
+
+    }
+
+    .ir-para-o-topo img {
+
+        height: 30px;
+        width: 30px;
+
+    }
+    /* IR PARA O TOPO - FINAL */
 
 }
