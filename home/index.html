@@ -86,7 +86,7 @@
 
             <h2 id="filmes">Filmes</h2>
 
-            <div class="card-container">
+            <div id="filmes-card-container" class="card-container">
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
@@ -101,7 +101,7 @@
 
             <h2 id="series">Séries</h2>
 
-            <div class="card-container">
+            <div id="series-card-container" class="card-container">
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
@@ -125,6 +125,17 @@
         </div>
 
     </footer>
+
+    <script>
+
+        window.addEventListener("load", () => {
+
+            carregarFilmes();
+            carregarSeries();
+
+        });
+
+    </script>
 
 </body>
 
