@@ -314,6 +314,9 @@ function carregarSeries () {
 
         novoCard.style.backgroundImage = novaURL;
 
+        // Define que ao clicar no card deverá chamar um método.
+        novoCard.onclick = () => aoClicarNaSerie(serie.nome);
+
         serieContainer.appendChild(novoCard);
 
     }
@@ -328,8 +331,27 @@ function aoClicarNoFilme(id) {
     if (filmeSelecionado) {
     
         // Salva as informações do filme no localStorage
-        localStorage.setItem("filmeSelecionado", JSON.stringify(filmeSelecionado));
+        localStorage.setItem("midiaSelecionada", JSON.stringify(filmeSelecionado));
         console.log("Filme salvo no localStorage:", filmeSelecionado);
+    
+    } else {
+    
+        console.error("Filme não encontrado com o ID:", id);
+    
+    }
+
+}
+
+function aoClicarNaSerie(id) {
+
+    // Encontra o filme com o ID correspondente
+    let serieSelecionada = midia.find(midia_ => midia_.midia === "serie" && midia_.nome === id);
+    
+    if (serieSelecionada) {
+    
+        // Salva as informações do filme no localStorage
+        localStorage.setItem("midiaSelecionada", JSON.stringify(serieSelecionada));
+        console.log("Filme salvo no localStorage:", serieSelecionada);
     
     } else {
     
