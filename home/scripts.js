@@ -367,19 +367,15 @@ function aoClicarNaSerie(id) {
 
 //#region IR PARA O TOPO
 function irParaOTopo () {
-
     window.scrollTo(0,0);
-
 }
 
 window.addEventListener('scroll', () => {
     const botaoIrParaOTopo = document.querySelector('.ir-para-o-topo');
 
     if (window.scrollY > 200) {
-        console.log("ASD")
         botaoIrParaOTopo.style.display = 'block'; // Show the button
     } else {
-        console.log("ASD2")
         botaoIrParaOTopo.style.display = 'none'; // Hide the button
     }
 });

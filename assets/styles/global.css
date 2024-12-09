@@ -560,6 +560,8 @@ main {
     /* IR PARA O TOPO - INÍCIO */
     .ir-para-o-topo {
 
+        display: none;
+
         position: fixed;
         right: 20px;
         bottom: 20px;
