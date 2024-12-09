@@ -33,7 +33,7 @@ let midia = [
             "Hasan Minhaj",
             "Kevin McKidd"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Um Lugar Silencioso: Dia Um",
@@ -54,7 +54,7 @@ let midia = [
             "Eliane Umuhire",
             "Takunda Khumalo"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Bad Boys: Até o Fim",
@@ -75,7 +75,7 @@ let midia = [
             "Paola Nuñez",
             "Eric Dane"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Venom: A Última Rodada",
@@ -96,7 +96,7 @@ let midia = [
             "Stephen Graham",
             "Alanna Ubach"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Deadpool & Wolverine",
@@ -117,7 +117,7 @@ let midia = [
             "Dafne Keen",
             "Jon Favreau"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Divertida Mente 2",
@@ -138,7 +138,7 @@ let midia = [
             "Tony Hale",
             "Phyllis Smith"
         ],
-        midia: "filme"
+        tipo: "filme"
     },
     {
         nome: "Prison Break: Em Busca da Verdade",
@@ -159,7 +159,7 @@ let midia = [
             "Wade Williams",
             "Sarah Wayne Callies"
         ],
-        midia: "serie"
+        tipo: "serie"
     },
     {
         nome: "O Senhor dos Anéis: Os Anéis de Poder",
@@ -181,7 +181,7 @@ let midia = [
             "Carlos Edwards",
             "Owain Arthur"
         ],
-        midia: "serie"
+        tipo: "serie"
     },
     {
         nome: "Grey's Anatomy",
@@ -202,7 +202,7 @@ let midia = [
             "Kevin McKidd",
             "Jesse Williams"
         ],
-        midia: "serie"
+        tipo: "serie"
     },
     {
         nome: "A Guerra dos Tronos",
@@ -223,7 +223,7 @@ let midia = [
             "Nikolaj Coster-Waldau",
             "Pedro Dinklage"
         ],
-        midia: "serie"
+        tipo: "serie"
     },
     {
         nome: "Sobrenatural",
@@ -244,7 +244,7 @@ let midia = [
             "Jensen Ackles",
             "Jared Padalecki"
         ],
-        midia: "serie"
+        tipo: "serie"
     },
     {
         nome: "O Segredo do Rio",
@@ -265,7 +265,7 @@ let midia = [
             "Trinidad González",
             "Diego Calva"
         ],
-        midia: "serie"
+        tipo: "serie"
     }
 ];
 
@@ -275,7 +275,7 @@ function carregarFilmes () {
 
     filmeContainer.innerHTML = ""; // Remove os cards existentes.
 
-    let filmes = midia.filter(midia_ => midia_.midia == "filme");
+    let filmes = midia.filter(midia_ => midia_.tipo == "filme");
 
     for (const filme of filmes) {
         
@@ -304,7 +304,7 @@ function carregarSeries () {
 
     serieContainer.innerHTML = ""; // Remove os cards existentes.
 
-    let series = midia.filter(midia_ => midia_.midia == "serie");
+    let series = midia.filter(midia_ => midia_.tipo == "serie");
 
     for (const serie of series) {
         
@@ -330,7 +330,7 @@ function carregarSeries () {
 function aoClicarNoFilme(id) {
 
     // Encontra o filme com o ID correspondente
-    let filmeSelecionado = midia.find(midia_ => midia_.midia === "filme" && midia_.nome === id);
+    let filmeSelecionado = midia.find(midia_ => midia_.tipo === "filme" && midia_.nome === id);
     
     if (filmeSelecionado) {
     
@@ -349,7 +349,7 @@ function aoClicarNoFilme(id) {
 function aoClicarNaSerie(id) {
 
     // Encontra o filme com o ID correspondente
-    let serieSelecionada = midia.find(midia_ => midia_.midia === "serie" && midia_.nome === id);
+    let serieSelecionada = midia.find(midia_ => midia_.tipo === "serie" && midia_.nome === id);
     
     if (serieSelecionada) {
     
