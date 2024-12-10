@@ -73,16 +73,29 @@
 
                 <label>
                     Pesquise por filmes e/ou séries:
-                    <input placeholder="Insira um título"></input>
+                    <input placeholder="Insira um título" onkeyup="aoPesquisarPorTitulo(this.value)"></input>
                 </label>
 
                 <label>
                     Filtrar por gênero:
-                    <select name="genero">
+                    <select name="genero" onchange="aoPesquisarPorGenero(this.value)">
                         <option selected value="">Selecione um gênero</option>
-                        <option value="1">Gênero 1</option>
-                        <option value="2">Gênero 2</option>
-                        <option value="3">Gênero 3</option>
+                        <option value="">Nenhum</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Ação e aventura">Ação e aventura</option>
+                        <option value="Animação">Animação</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Comédia">Comédia</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Ficção científica">Ficção científica</option>
+                        <option value="Ficção científica e fantasia">Ficção científica e fantasia</option>
+                        <option value="Mistério">Mistério</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Thriller">Thriller</option>
                     </select>
                 </label>
 

@@ -1,3 +1,4 @@
+//#region Cabeçalho
 function fecharCabecalhoMobile () {
 
     let cabecalho = document.querySelector("#cabecalho-mobile");
@@ -11,7 +12,9 @@ function abrirCabecalhoMobile () {
     cabecalho.style.display = "block";
 
 }
+//#endregion Cabeçalho
 
+//#region Carregar Dados
 //Variáveis que armazenam valores que são usados no JavaScript
 let midia = [
     {
@@ -326,7 +329,9 @@ function carregarSeries () {
     }
 
 }
+//#endregion Carregar Dados
 
+//#region Redirecionamento dos cards
 function aoClicarNoFilme(id) {
 
     // Encontra o filme com o ID correspondente
@@ -364,8 +369,9 @@ function aoClicarNaSerie(id) {
     }
 
 }
+//#endregion Redirecionamento dos cards
 
-//#region IR PARA O TOPO
+//#region Ir para o topo
 function irParaOTopo () {
     window.scrollTo(0,0);
 }
@@ -379,4 +385,111 @@ window.addEventListener('scroll', () => {
         botaoIrParaOTopo.style.display = 'none'; // Hide the button
     }
 });
-//#endregion IR PARA O TOPO
+//#endregion Ir para o topo
+
+//#region Pesquisa por título
+function aoPesquisarPorTitulo(titulo) {
+
+    // Filtra os filmes e séries cujo nome inclui o título pesquisado (case-insensitive)
+    let resultadosFilmes = midia.filter(midia_ => midia_.tipo === "filme" && midia_.nome.toLowerCase().includes(titulo.toLowerCase()));
+    let resultadosSeries = midia.filter(midia_ => midia_.tipo === "serie" && midia_.nome.toLowerCase().includes(titulo.toLowerCase()));
+
+    // Container para exibir os resultados de filmes e séries
+    let filmeContainer = document.querySelector("#filmes-card-container");
+    let serieContainer = document.querySelector("#series-card-container");
+
+    // Limpa os resultados anteriores
+    filmeContainer.innerHTML = "";
+    serieContainer.innerHTML = "";
+
+    // Renderiza os filmes correspondentes
+    for (const filme of resultadosFilmes) {
+        let novoCard = document.createElement("a");
+        novoCard.classList.add("card");
+        novoCard.href = "../detalhes-do-filme/";
+        novoCard.style.backgroundImage = `url('../assets/imgs/${filme.poster}')`;
+        novoCard.onclick = () => aoClicarNoFilme(filme.nome);
+        filmeContainer.appendChild(novoCard);
+    }
+
+    // Renderiza as séries correspondentes
+    for (const serie of resultadosSeries) {
+        let novoCard = document.createElement("a");
+        novoCard.classList.add("card");
+        novoCard.href = "../detalhes-da-serie/";
+        novoCard.style.backgroundImage = `url('../assets/imgs/${serie.poster}')`;
+        novoCard.onclick = () => aoClicarNaSerie(serie.nome);
+        serieContainer.appendChild(novoCard);
+    }
+
+    // Caso não haja resultados, exibe uma mensagem de "Nenhum resultado encontrado"
+    if (resultadosFilmes.length === 0 && resultadosSeries.length === 0) {
+        let mensagem = document.createElement("p");
+        mensagem.textContent = "Nenhum resultado encontrado.";
+        mensagem.style.textAlign = "center";
+        mensagem.style.color = "#555";
+        filmeContainer.appendChild(mensagem);
+        serieContainer.appendChild(mensagem.cloneNode(true));
+    }
+}
+//#endregion Pesquisa por título
+
+//#region Pesquisa por gênero
+function aoPesquisarPorGenero(genero) {
+
+    // Filtra os filmes e séries que possuem o gênero pesquisado
+    let resultadosFilmes = midia.filter(midia_ => 
+        midia_.tipo === "filme" && midia_.genero.find(gen => gen.toLowerCase() === genero.toLowerCase())
+    );
+    
+    let resultadosSeries = midia.filter(midia_ => 
+        midia_.tipo === "serie" && midia_.genero.find(gen => gen.toLowerCase() === genero.toLowerCase())
+    );
+    
+    if (!genero) {
+
+        resultadosFilmes = midia.filter(midia_ => midia_.tipo === "filme");
+        resultadosSeries = midia.filter(midia_ => midia_.tipo === "series");
+
+    }
+
+    // Container para exibir os resultados de filmes e séries
+    let filmeContainer = document.querySelector("#filmes-card-container");
+    let serieContainer = document.querySelector("#series-card-container");
+
+    // Limpa os resultados anteriores
+    filmeContainer.innerHTML = "";
+    serieContainer.innerHTML = "";
+
+    // Renderiza os filmes correspondentes
+    for (const filme of resultadosFilmes) {
+        let novoCard = document.createElement("a");
+        novoCard.classList.add("card");
+        novoCard.href = "../detalhes-do-filme/";
+        novoCard.style.backgroundImage = `url('../assets/imgs/${filme.poster}')`;
+        novoCard.onclick = () => aoClicarNoFilme(filme.nome);
+        filmeContainer.appendChild(novoCard);
+    }
+
+    // Renderiza as séries correspondentes
+    for (const serie of resultadosSeries) {
+        let novoCard = document.createElement("a");
+        novoCard.classList.add("card");
+        novoCard.href = "../detalhes-da-serie/";
+        novoCard.style.backgroundImage = `url('../assets/imgs/${serie.poster}')`;
+        novoCard.onclick = () => aoClicarNaSerie(serie.nome);
+        serieContainer.appendChild(novoCard);
+    }
+
+    // Caso não haja resultados, exibe uma mensagem de "Nenhum resultado encontrado"
+    if (resultadosFilmes.length === 0 && resultadosSeries.length === 0) {
+        let mensagem = document.createElement("p");
+        mensagem.textContent = "Nenhum resultado encontrado.";
+        mensagem.style.textAlign = "center";
+        mensagem.style.color = "#555";
+        filmeContainer.appendChild(mensagem);
+        serieContainer.appendChild(mensagem.cloneNode(true));
+    }
+}
+
+//#endregion Pesquisa por gênero
