@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 /* Importa a fonte "Ubuntu" do Google Fonts, incluindo várias variações de peso e itálico. */
 
+html {
+
+    scroll-behavior: smooth;
+
+}
+
 * {
     margin: 0px; /* Remove a margem padrão de todos os elementos */
     padding: 0px; /* Remove o preenchimento (padding) padrão de todos os elementos */
@@ -10,11 +16,10 @@
     outline: none;
 }
 
-html {
-
-    scroll-behavior: smooth;
-
+.menu-de-hamburguer {
+    display: none;
 }
+
 
 /* @media screen and (max-width: 600px) {
     * {
@@ -26,7 +31,7 @@ body {
     background-color: black;
 }
 
-.cabecalho  {
+.cabecalho {
     position: absolute; /* Posiciona o .cabecalho de forma absoluta, sobrepondo outros elementos */
     width: 100%; /* Define a largura do .cabecalho como 100% da tela */
     background: rgb(0,0,0); /* Define a cor de fundo como preta */
@@ -38,19 +43,23 @@ body {
     padding-left: 120px; 
     padding-right: 120px; 
     display: flex; /* Define o layout como flexbox */
-    justify-content: space-between; /* Distribui o conteúdo de forma que haja espaço entre os itens no header */
+    justify-content: space-between; /* Distribui o conteúdo de forma que haja espaço entre os itens no .cabecalho */
     z-index: 1;
 }
 
 .cabecalho .logo {
-    color: white; /* Define a cor do texto dentro de <span> no header como branca */
+    color: white; /* Define a cor do texto dentro de <span> no .cabecalho como branca */
     text-decoration: none;
 }
 
 .cabecalho nav a {
-    color: white; /* Define a cor dos links dentro do <nav> no header como branca */
+    color: white; /* Define a cor dos links dentro do <nav> no .cabecalho como branca */
     text-decoration: none; /* Remove o sublinhado dos links */
     margin-left: 10px; /* Adiciona uma margem de 10px à esquerda de cada link */
+}
+
+#cabecalho-mobile {
+    display: none;
 }
 
 .banner {
@@ -119,6 +128,7 @@ body {
 .filmes-series .inputs {
 
     display: flex;
+    align-items: flex-end;
     margin-bottom: 40px;
 
 }
@@ -165,19 +175,39 @@ body {
 }
 
 .filmes-series .card {
-
     height: 180px;
     width: 120px;
-    
     background-image: url("../imgs/spider-man_sem_volta_para_casa.jpg");
     background-size: cover;
     background-position: center;
-
     margin-right: 10px;
-
     border-radius: 7px;
 
-    cursor: pointer;
+    animation-name: mostrarcartao;
+    animation-duration: .5s;
+}
+
+@keyframes mostrarcartao {
+    0% {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.limparFiltros {
+
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    color: black;
+    border: none;
+    border-radius: 7px;
+    padding: 0px 20px;
+    margin-top: 5px;
 
 }
 
@@ -302,6 +332,7 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 38px;
     color: white;
     margin-top: 100px;
 }
@@ -316,6 +347,7 @@ main {
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 38px;
 }
 
 .card_elenco {
@@ -337,15 +369,10 @@ main {
     text-align: center;
 }
 
-/* Cabecalho Mobile */
-/* Removendo cabecalho mobile da visualizacao desktop */
 #cabecalho-mobile {
-    display: none;
-}
 
-/* Removendo botao de menu de hamburguer da visualizacao desktop */
-.menu-de-hamburguer {
-    display: none;
+    display: none; /* Deixa o item oculto, inicialmente */
+
 }
 
 /* Media Query */
@@ -377,6 +404,8 @@ main {
     /* Forma 2 */
     .filmes-series .inputs {
         flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .filmes-series .inputs label {
@@ -408,53 +437,20 @@ main {
 
     }
 
-    /* CABECALHO MOBILE - INICIO */
-    .menu-de-hamburguer {
-
-        display: block;
-        position: absolute;
-        
-        right: 15px;
-        top: 15px;
-
-        height: 80px;
-        width: 80px;
-
-        background-color: transparent;
-
-        z-index: 1;
-        border: none;
-
-    }
-
-    .menu-de-hamburguer img {
-
-        width: 100%;
-        height: 100%;
-
-    }
-
+    /* CABECALHO - MOBILE */
     .cabecalho {
-
         display: none;
-
     }
 
     #cabecalho-mobile {
 
-        display: none;
+        position: fixed;
 
         height: 100vh;
         width: 100%;
-
-        position: fixed;
-
-        top: 0px;
-        left: 0px;
+        background-color: black;
 
         z-index: 2;
-
-        background-color: black;
 
     }
 
@@ -475,119 +471,43 @@ main {
 
     }
 
-    #cabecalho-mobile .botao-de-fechar {
+    .botao-de-fechar {
 
-        height: 80px;
-        width: 80px;
+        width: 50px;
+        height: 50px;
+
         background-color: transparent;
         border: none;
-        position: fixed;
-        right: 5px;
-        top: 5px;
 
-    }
-    
-    #cabecalho-mobile .botao-de-fechar img {
-
-        height: 100%;
-        width: 100%;
+        position: absolute; /* Deixa o elemento flutuando na tela */
+        top: 10px;
+        right: 10px;
 
     }
 
-    /* CABECALHO MOBILE - FIM */
+    .botao-de-fechar img {
 
-    /* DETALHES DE FILME - INICIO */
-    .detalhes_filme_container {
-
-        padding: 15px;
+        width: 50px;
+        height: 50px;
 
     }
 
-    .section_informacoes .capa-filme {
-
-        width: 100%;
-
-    }
-
-    .section_informacoes {
-
-        flex-direction: column;
-        gap: 0px;
-
-    }
-    
-    .section_informacoes h2 {
-
-        margin-top: 20px;
-
-    }
-
-    .elenco_container {
-
-        margin-top: 15px;
-
-    }
-
-    .elenco_container .card_elenco {
+    .menu-de-hamburguer {
 
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0px;
-        flex-basis: calc(50% - 5px);
-        margin-bottom: 15px;
+
+        width: 50px;
+        height: 50px;
+
+        background-color: transparent;
+        border: none;
+
+        position: absolute; /* Deixa o elemento flutuando na tela */
+        top: 10px;
+        right: 10px;
+        
+        z-index: 1;
 
     }
-
-    .elenco_container .card_elenco span {
-
-        text-align: center;
-        width: 100%;
-        margin-top: 10px;
-        padding: 0px 10px;
-
-    }
-    
-    .elenco_container .card_elenco img {
-
-        height: unset;
-        width: 100%;
-
-    }
-    /* DETALHES DE FILME - FINAL */
-
-    /* IR PARA O TOPO - INÍCIO */
-    .ir-para-o-topo {
-
-        display: none;
-
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-
-        border-radius: 7px;
-
-        height: 60px;
-        width: 60px;
-
-        background-color: black;
-        border: 1px solid white;
-
-        z-index: 3;
-
-        color: white;
-
-        cursor: pointer;
-
-    }
-
-    .ir-para-o-topo img {
-
-        height: 30px;
-        width: 30px;
-
-    }
-    /* IR PARA O TOPO - FINAL */
 
 }
