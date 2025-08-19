@@ -536,6 +536,40 @@ function limparFiltros() {
     filmeContainer.appendChild(mensagem);
   }
   //#endregion
+
+  //#region Series
+  let resultadosSeries = midia.filter((m) => m.tipo == "serie");
+
+  let serieContainer = document.querySelector("#series-card-container");
+  console.log(resultadosSeries);
+
+  serieContainer.innerHTML = "";
+
+  for (const serie of resultadosSeries) {
+    let novoCard = document.createElement("a");
+    novoCard.classList.add("card");
+    // <a class="card"> </a>
+
+    novoCard.href = "../detalhes-do-filme";
+    // <a class="card" href="../detalhes-do-filme"> </a>
+
+    novoCard.style.backgroundImage = `url('../assets/imgs/${serie.poster}')`;
+
+    serieContainer.appendChild(novoCard);
+  }
+
+  if (resultadosSeries.length == 0) {
+    let mensagem = document.createElement("p");
+
+    mensagem.textContent = "Nenhum resultado encontrado.";
+
+    mensagem.style.textAlign = "center";
+
+    mensagem.style.color = "#555";
+
+    serieContainer.appendChild(mensagem);
+  }
+  //#endregion
 }
 
 // Juntar texto com um variável
